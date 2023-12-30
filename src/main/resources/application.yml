@@ -1,0 +1,14 @@
+#Database configuration
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-1.c5gq8e2uu1qv.eu-north-1.rds.amazonaws.com:3306/all_you_can_eat
+    username: maxmosmysql
+    password: qrOkVa1Y0y2FOL5
+#Hibernate Properties
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
