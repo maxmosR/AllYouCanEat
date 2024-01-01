@@ -1,6 +1,7 @@
 package com.portafoglio.allyoucaneat.model;
 
 import jakarta.persistence.*;
+import java.util.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,5 +27,8 @@ public class Menu {
     @ManyToOne
     @JoinColumn(name = "resturant_id")
     private Restaurant resturant;
+
+    @OneToMany(mappedBy = "menu", fetch = FetchType.LAZY)
+    private List<Item> items; //anche altre data structures si possono usare qui oltre a list
 
 }
