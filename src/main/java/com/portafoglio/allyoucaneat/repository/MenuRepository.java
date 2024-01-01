@@ -1,6 +1,6 @@
-package com.portaFoglio.AllYouCanEat.repository;
+package com.portafoglio.allyoucaneat.repository;
 
-import com.portaFoglio.AllYouCanEat.model.Menu;
+import com.portafoglio.allyoucaneat.model.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

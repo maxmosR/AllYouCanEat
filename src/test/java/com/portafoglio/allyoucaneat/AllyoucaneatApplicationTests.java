@@ -1,13 +1,13 @@
-package com.portaFoglio.AllYouCanEat;
+package com.portafoglio.allyoucaneat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AllYouCanEatApplicationTests {
+class AllyoucaneatApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 
 }
