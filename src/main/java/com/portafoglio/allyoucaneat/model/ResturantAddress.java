@@ -31,7 +31,7 @@ public class ResturantAddress {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "resturant_address",fetch = FetchType.LAZY)
     @JoinColumn(name = "resturant_id")
     private Restaurant restaurant;
 }

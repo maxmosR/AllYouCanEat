@@ -26,6 +26,4 @@ public class OrderAddress {
     @Column(name = "zip_code")
     private String zipCode;
 
-    @OneToOne(mappedBy = "order_address", cascade = CascadeType.ALL)
-    private Order order;
 }

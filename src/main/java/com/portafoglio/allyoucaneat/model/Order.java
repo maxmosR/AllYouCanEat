@@ -36,7 +36,7 @@ public class Order {
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_address_id", nullable = false)
     private OrderAddress orderAddress;
 }
