@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Table(name = "order_address")
+@Table(name = "resturant_address")
 public class ResturantAddress {
 
     @Id
@@ -22,8 +22,8 @@ public class ResturantAddress {
     @Column(name ="city")
     private String city;
 
-    @Column(name ="cap")
-    private String cap;
+    @Column(name ="zip_code")
+    private String zip_code;
 
     @Column(name ="address")
     private String address;

@@ -39,4 +39,7 @@ public class Restaurant {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
+    @OneToOne(mappedBy = "restaurant", fetch = FetchType.LAZY)
+    private ResturantAddress resturantAddress;
 }
