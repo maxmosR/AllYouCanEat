@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @ToString
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -37,6 +37,6 @@ public class Order {
     private Cart cart;
 
     @OneToOne
-    @JoinColumn(name = "order_address_id", nullable = false)
+    @JoinColumn(name = "order_address_id", nullable = false, referencedColumnName = "order_address_id")
     private OrderAddress orderAddress;
 }

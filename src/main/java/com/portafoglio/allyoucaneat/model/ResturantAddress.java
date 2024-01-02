@@ -16,7 +16,7 @@ public class ResturantAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
+    @Column(name = "restaurant_address_id")
     private Integer addressId;
 
     @Column(name ="city")
@@ -30,9 +30,5 @@ public class ResturantAddress {
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
-
-    @OneToOne(mappedBy = "resturant_address",fetch = FetchType.LAZY)
-    @JoinColumn(name = "resturant_id")
-    private Restaurant restaurant;
 }
 

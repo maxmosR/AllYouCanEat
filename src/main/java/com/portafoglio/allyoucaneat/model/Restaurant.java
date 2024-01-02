@@ -40,6 +40,7 @@ public class Restaurant {
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
-    @OneToOne(mappedBy = "restaurant", fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumn(name = "restaurant_address_id", nullable = false, referencedColumnName = "restaurant_address_id")
     private ResturantAddress resturantAddress;
 }
