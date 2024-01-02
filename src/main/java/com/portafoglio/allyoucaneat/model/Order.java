@@ -1,5 +1,6 @@
 package com.portafoglio.allyoucaneat.model;
 
+import com.portafoglio.allyoucaneat.model.enums.Estatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private OrderStatus status;
+    private Estatus status;
 
     @Column(name = "note")
     private String note;
