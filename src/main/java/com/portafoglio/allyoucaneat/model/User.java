@@ -26,9 +26,6 @@ public class User {
     @Column(name = "tel")
     private String tel;
 
-    @Column(name = "address")
-    private String address;
-
     @Column(name = "email")
     private String email;
 
