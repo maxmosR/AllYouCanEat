@@ -16,7 +16,7 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "restaurant_id")
-    private Integer restaurantId;
+    private Long restaurantId;
 
     @Column(name = "name")
     private String name;
@@ -42,5 +42,5 @@ public class Restaurant {
 
     @OneToOne
     @JoinColumn(name = "restaurant_address_id", nullable = false, referencedColumnName = "restaurant_address_id")
-    private ResturantAddress resturantAddress;
+    private RestaurantAddress restaurantAddress;
 }

@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Table(name = "resturant_address")
-public class ResturantAddress {
+public class RestaurantAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "restaurant_address_id")
-    private Integer addressId;
+    private Long addressId;
 
     @Column(name ="city")
     private String city;
