@@ -14,7 +14,8 @@ public class OrderAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "order_address_id")
+    private Long orderAddressId;
 
     @Column(name = "street")
     private String street;
@@ -25,6 +26,6 @@ public class OrderAddress {
     @Column(name = "zip_code")
     private String zipCode;
 
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
-    private Cart cart;
+    @OneToOne(mappedBy = "order_address", cascade = CascadeType.ALL)
+    private Order order;
 }
