@@ -1,7 +1,6 @@
 package com.portafoglio.allyoucaneat.model;
 
 import jakarta.persistence.*;
-import java.util.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,24 +11,28 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Table(name = "menu")
-public class Menu {
+@Table(name = "order_address")
+public class ResturantAddress {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "menu_id")
-    private Integer menuId;
+    @Column(name = "address_id")
+    private Integer addressId;
 
-    @Column(name = "category")
-    private String category;
+    @Column(name ="city")
+    private String city;
+
+    @Column(name ="cap")
+    private String cap;
+
+    @Column(name ="address")
+    private String address;
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resturant_id")
-    private Restaurant resturant;
-
-    @OneToMany(mappedBy = "menu", fetch = FetchType.LAZY)
-    private List<Item> items; //anche altre data structures si possono usare qui oltre a list
-
+    private Restaurant restaurant;
 }
+
