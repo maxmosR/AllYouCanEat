@@ -12,3 +12,29 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+  # Mail properties
+  mail:
+    host: feedback-smtp.eu-south-1.amazonses.com
+    port: 587
+    username: your-username
+    password: your-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+# Password requirements
+password:
+  min-length: 8
+
+# OTP requirements
+otp:
+  length: 6
+
+
+
+
