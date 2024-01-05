@@ -26,10 +26,7 @@ public class User {
     @Column(name = "tel")
     private String tel;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "email", unique = true)
+        @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
