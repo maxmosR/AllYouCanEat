@@ -4,7 +4,18 @@ spring:
     url: jdbc:mysql://mysql-1.c5gq8e2uu1qv.eu-north-1.rds.amazonaws.com:3306/all_you_can_eat
     username: maxmosmysql
     password: qrOkVa1Y0y2FOL5
-#Hibernate Properties
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 730020627059-51hdn29mrarjs42c9f1uj9l7somr31fp.apps.googleusercontent.com
+            clientSecret: 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
+            scope: openid,profile,email
+          facebook:
+            client-id: 1480930729363364
+            client-secret: b354ecafd2d5b60e346c052f3545b207
+  #Hibernate Properties
   jpa:
     properties:
       hibernate:
