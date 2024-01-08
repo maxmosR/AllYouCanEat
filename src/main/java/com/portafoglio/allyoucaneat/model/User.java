@@ -29,7 +29,7 @@ public class User {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
@@ -37,4 +37,10 @@ public class User {
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
+
+    @Column(name = "otp")
+    private String otp;
+
+    @Column(name = "user_status", columnDefinition = "boolean default false")
+    private boolean enabled;
 }
