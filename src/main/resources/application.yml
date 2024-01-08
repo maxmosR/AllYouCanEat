@@ -13,8 +13,8 @@ spring:
             clientSecret: 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
             scope: openid,profile,email
           facebook:
-            client-id: 1480930729363364
-            client-secret: b354ecafd2d5b60e346c052f3545b207
+            client-id: 881653946948531
+            client-secret: db3d36ea5ddf97e2f387c62c6e059c7b
   #Hibernate Properties
   jpa:
     properties:
