@@ -42,7 +42,7 @@ public class UserController {
     @PostMapping("/completeRegistration")
     public ResponseEntity<String> completeRegistration(@RequestParam String email, @RequestParam String password, @RequestParam(required = false) String name, @RequestParam(required = false) String username, @RequestParam(required = false) String tel, @RequestParam(required = false) String address) {
         try {
-            userService.completeRegistration(email, password, name, username, tel);
+            userService.completeRegistration(email, password, name, username, tel, address);
             return new ResponseEntity<>("Registration completed successfully.", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

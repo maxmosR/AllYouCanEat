@@ -57,7 +57,7 @@ public class UserService {
         }
     }
 
-    public void completeRegistration(String email, String password, String name, String surname, String tel) {
+    public void completeRegistration(String email, String password, String name, String surname, String tel, String address) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
@@ -65,7 +65,7 @@ public class UserService {
             user.setName(name);
             user.setSurname(surname);
             user.setTel(tel);
-            // Set additional information (optional)
+            user.setAddress(address);// Set additional information (optional)
             userRepository.save(user);
         } else {
             throw new IllegalArgumentException("User not found for email: " + email);
