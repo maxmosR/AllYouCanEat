@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestParam String email, @RequestParam String password){
+    public Optional<User> login(@RequestParam String email, @RequestParam String password){
         return userService.login(email, password);
     }
 

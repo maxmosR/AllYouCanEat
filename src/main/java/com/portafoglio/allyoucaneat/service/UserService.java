@@ -14,34 +14,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private EmailService emailService;
-
-    /*@Autowired
-    private EmailService emailService;*/
-
-    /*@Value("${password.min-length}")
-    private int minPasswordLength;
-
-    @Value("${otp.length}")
-    private int otpLength;*/
-
     public User registerUser(User user) {
 
             validateUser(user);
             validateEmail(user.getEmail());
-            /*validatePassword(user.getPassword());*/
             findByEmail(user.getEmail());
-
-        // Generate and send OTP
-        /*String otp = generateOtp();
-        sendOtpByEmail(user.getEmail(), otp);
-        user.setOtp(otp);*/
 
         User savedUser = userRepository.save(user);
 
-        emailService.sendEmail(savedUser);
-        return savedUser;
+         return savedUser;
 
         }
 
@@ -57,7 +38,7 @@ public class UserService {
             throw new IllegalArgumentException("Invalid OTP");
         }
     }*/
-    public User login(String email, String password) {
+    public Optional<User> login(String email, String password) {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
