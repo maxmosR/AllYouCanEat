@@ -13,3 +13,4 @@ public class AllyoucaneatApplication {
 		SpringApplication.run(AllyoucaneatApplication.class, args);
 	}
 }
+
