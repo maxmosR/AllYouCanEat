@@ -12,3 +12,29 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+  # Mail properties
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: eugenio.marinelli900@gmail.com
+    password: $aLd9!WeG06?@Dy19lAn35!
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+# Password requirements
+password:
+  min-length: 8
+
+# OTP requirements
+otp:
+  length: 6
+
+
+
+

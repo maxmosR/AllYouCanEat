@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long userId;
 
@@ -26,10 +27,7 @@ public class User {
     @Column(name = "tel")
     private String tel;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
@@ -37,4 +35,10 @@ public class User {
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
+
+    /*@Column(name = "otp")
+    private String otp;*/
+
+    @Column(name = "user_status", columnDefinition = "boolean default false")
+    private boolean enabled;
 }
