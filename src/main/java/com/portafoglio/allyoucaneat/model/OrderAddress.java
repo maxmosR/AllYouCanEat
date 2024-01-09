@@ -13,7 +13,7 @@ import lombok.ToString;
 public class OrderAddress {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_address_id")
     private Long orderAddressId;
 
