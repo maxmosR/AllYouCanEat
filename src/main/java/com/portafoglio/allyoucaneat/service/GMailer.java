@@ -13,6 +13,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
+import com.portafoglio.allyoucaneat.utils.Constants;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.mail.Session;
@@ -22,6 +23,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.Properties;
 import java.util.Set;
 
@@ -57,12 +59,12 @@ public class GMailer {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public void sendMail(String subject, String message) throws Exception {
+    public void sendMail(String subject, String message, String toEmail) throws Exception {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
-        email.setFrom(new InternetAddress(TEST_EMAIL));
-        email.addRecipient(TO, new InternetAddress(TEST_EMAIL));
+        email.setFrom(new InternetAddress(toEmail));
+        email.addRecipient(TO, new InternetAddress(toEmail));
         email.setSubject(subject);
         email.setText(message);
 
@@ -86,16 +88,17 @@ public class GMailer {
             }
         }
     }
+    private String generateNumericOTP() {
+        SecureRandom random = new SecureRandom();
+        StringBuilder otp = new StringBuilder();
+        for (int i = 0; i < 6; i++) {
+            otp.append(random.nextInt(10));
+        }
+        return otp.toString();
+    }
 
     public static void main(String[] args) throws Exception {
-        new GMailer().sendMail("A new message", """
-                Dear reader,
-                                
-                Hello world.
-                                
-                Best regards,
-                myself
-                """);
+        new GMailer().sendMail(Constants.SUBJECT_CONFERMATION_EMAIL, Constants.CONFERMATION_EMAIL, TEST_EMAIL);
     }
 
 }
