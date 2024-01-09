@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 public class CartItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cart_items_id")
     private Long cartItemsId;
 
