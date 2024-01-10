@@ -8,21 +8,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.annotations.*;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("user")
+@Api(value = "User Registration API")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
 
-    @PostMapping("register")
-    public ResponseEntity<String> registerUser(@RequestParam String email) throws Exception {
-            new GMailer().sendMail(Constants.SUBJECT_CONFERMATION_EMAIL, Constants.CONFERMATION_EMAIL, email);
+    @ApiOperation(value = "Preregister a user", notes = "Initiates user registration and sends OTP to the provided email.")
+    /*@ApiResponses(value = {
+            @ApiResponse(code = 200, message = "User registration initiated. Check your email for OTP."),
+            @ApiResponse(code = 400, message = "Bad request. Invalid email format or email already registered."),
+            @ApiResponse(code = 500, message = "Internal server error. Something went wrong.")
+    })*/
+    @PostMapping("preregister")
+    public ResponseEntity<String> preregisterUser(@RequestParam String email) {
+        try {
+            userService.preregisterUser(email);
             return new ResponseEntity<>("User registration initiated. Check your email for OTP.", HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Internal server error. Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/login")

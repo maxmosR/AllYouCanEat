@@ -31,10 +31,6 @@ import static com.google.api.services.gmail.GmailScopes.GMAIL_SEND;
 import static javax.mail.Message.RecipientType.TO;
 
 public class GMailer {
-
-    private static final String TEST_EMAIL = "maxmos.abdelsayed@gmail.com";
-
-    private static final String TEST_EMAIL_TO = "eugenio.marinelli900@gmail.com";
     private final Gmail service;
 
     public GMailer() throws Exception {
@@ -95,10 +91,6 @@ public class GMailer {
             otp.append(random.nextInt(10));
         }
         return otp.toString();
-    }
-
-    public static void main(String[] args) throws Exception {
-        new GMailer().sendMail(Constants.SUBJECT_CONFERMATION_EMAIL, Constants.CONFERMATION_EMAIL, TEST_EMAIL);
     }
 
 }

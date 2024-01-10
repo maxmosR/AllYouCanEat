@@ -1,7 +1,7 @@
 package com.portafoglio.allyoucaneat.utils;
 
 public class Constants {
-    public static final String CONFERMATION_EMAIL = """
+    public static final String CONFIRMATION_EMAIL = """
                 Dear reader,
                                 
                 Hello world.
@@ -9,6 +9,6 @@ public class Constants {
                 Best regards,
                 myself
                 """;
-    public static final String SUBJECT_CONFERMATION_EMAIL = "A new message";
+    public static final String SUBJECT_CONFIRMATION_EMAIL = "A new message";
 
 }

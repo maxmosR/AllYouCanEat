@@ -5,6 +5,7 @@ import com.portafoglio.allyoucaneat.repository.UserRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.portafoglio.allyoucaneat.utils.Constants;
 
 import java.util.Optional;
 
@@ -14,17 +15,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User registerUser(User user) {
-
-            validateUser(user);
-            validateEmail(user.getEmail());
-            findByEmail(user.getEmail());
-
-        User savedUser = userRepository.save(user);
-
-         return savedUser;
-
-        }
+    public void preregisterUser(String email) throws Exception {
+        User user = new User(email);
+        validateUser(user);
+        validateEmail(user.getEmail());
+        new GMailer().sendMail(Constants.SUBJECT_CONFIRMATION_EMAIL, Constants.CONFIRMATION_EMAIL, user.getEmail());
+        userRepository.save(user);
+    }
 
     /*public void verifyOtp(String email, String otp) {
         Optional<User> optionalUser = userRepository.findByEmailAndOtp(email, otp);

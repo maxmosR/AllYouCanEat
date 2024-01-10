@@ -1,6 +1,7 @@
 package com.portafoglio.allyoucaneat.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @ToString
 @Table(name = "user")
 public class User {
@@ -36,9 +38,15 @@ public class User {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    /*@Column(name = "otp")
-    private String otp;*/
+    @Column(name = "otp")
+    private String otp;
 
     @Column(name = "user_status", columnDefinition = "boolean default false")
     private boolean enabled;
+
+    public User(String email) {
+        this.email = email;
+    }
+
+
 }
